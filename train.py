@@ -24,7 +24,8 @@ seq_length_test = 2**6
 # location_dataset: LocationDatasetDateTimeComponents = LocationDatasetDateTimeComponents(BRIGHTKITE, seq_length_train, seq_length_test)
 # location_dataset: LocationDatasetDateTimeComponentsCluster = LocationDatasetDateTimeComponentsCluster(BRIGHTKITE, seq_length_train, seq_length_test)
 # location_dataset: LocationDatasetDateTimeComponentsKMeansCluster = LocationDatasetDateTimeComponentsKMeansCluster(BRIGHTKITE, seq_length_train, seq_length_test)
-location_dataset: LocationDatasetDateTimeComponentsGridCluster = LocationDatasetDateTimeComponentsGridCluster(BRIGHTKITE, seq_length_train, seq_length_test)
+location_dataset: LocationDatasetDateTimeComponentsGridCluster = LocationDatasetDateTimeComponentsGridCluster(BRIGHTKITE_MODEL, seq_length_train, seq_length_test)
+# location_dataset: LocationDatasetDateTimeComponentsGridCluster = LocationDatasetDateTimeComponentsGridCluster(GOWALLA, seq_length_train, seq_length_test)
 data_loader_train: DataLoader = DataLoader(location_dataset.train_set, batch_size=batch_size_train, shuffle=False)
 data_loader_test: DataLoader = DataLoader(location_dataset.test_set, batch_size=batch_size_test, shuffle=False)
 input_size = location_dataset.train_set.x_train.shape[1]
@@ -36,7 +37,7 @@ print(f'output_size={output_size}')
 hidden_size = 256
 num_layers = 4
 learning_rate = 1e-3
-num_epochs = 50
+num_epochs = 20
 log_interval = 10
 dropout = 0.2
 
